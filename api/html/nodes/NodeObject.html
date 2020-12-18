@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
@@ -14,7 +13,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/ngqt.css" type="text/css" />
 
   
   
@@ -96,7 +94,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Module Contents</span></p>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../constants.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graph.html">Graphs</a></li>
@@ -108,10 +106,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../menu.html">Menus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../widgets.html">Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../node_widgets.html">Node Widgets</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Module Examples</span></p>
+<p class="caption"><span class="caption-text">Module Widgets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../custom_widgets.html">Custom Widgets</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex_overview.html">NodeGraph Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/ex_node.html">Node Examples</a></li>
@@ -206,8 +207,8 @@ nodes inherit from.</p>
 <dt id="NodeGraphQt.NodeObject.NODE_NAME">
 <code class="descname">NODE_NAME</code><a class="headerlink" href="#NodeGraphQt.NodeObject.NODE_NAME" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial base node name.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>re-implement this attribute to provide a base node name.</p>
 </div>
 <dl class="field-list simple">
@@ -223,14 +224,14 @@ nodes inherit from.</p>
 <dl class="attribute">
 <dt id="NodeGraphQt.NodeObject.__identifier__">
 <code class="descname">__identifier__</code><a class="headerlink" href="#NodeGraphQt.NodeObject.__identifier__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unique node identifier domain. eg. <code class="docutils literal notranslate"><span class="pre">&quot;com.chantacticvfx&quot;</span></code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<dd><p>Unique node identifier domain. eg. <code class="docutils literal notranslate"><span class="pre">&quot;nodeGraphQt.nodes&quot;</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>re-implement this attribute to provide a unique node type.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>node identifer domain</p>
+<dd class="field-odd"><p>node identifier domain</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -283,7 +284,7 @@ nodes inherit from.</p>
 <dl class="attribute">
 <dt id="NodeGraphQt.NodeObject.type_">
 <code class="descname">type_</code><a class="headerlink" href="#NodeGraphQt.NodeObject.type_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Node type identifier followed by the class name. <cite>eg.</cite> <code class="docutils literal notranslate"><span class="pre">&quot;com.chantacticvfx.NodeObject&quot;</span></code></p>
+<dd><p>Node type identifier followed by the class name (&lt;identifier&gt;.&lt;class_name&gt;). <cite>eg.</cite> <code class="docutils literal notranslate"><span class="pre">&quot;nodeGraphQt.nodes.NodeObject&quot;</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>node type (<code class="docutils literal notranslate"><span class="pre">__identifier__.__className__</span></code>)</p>
@@ -348,7 +349,7 @@ nodes inherit from.</p>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="../widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a></p>
+<p><a class="reference internal" href="../custom_widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
