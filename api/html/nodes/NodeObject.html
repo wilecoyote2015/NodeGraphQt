@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>NodeObject &mdash; NodeGraphQt release : v0.1.1 documentation</title>
+  <title>NodeObject &mdash; NodeGraphQt 0.1.1 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                release : v0.1.1
+                0.1.1
               </div>
             
           
@@ -106,11 +106,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../menu.html">Menus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../node_widgets.html">Node Widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Module Widgets</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../custom_widgets.html">Custom Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node_widgets.html">Node Widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
@@ -327,8 +327,16 @@ nodes inherit from.</p>
 <dt id="NodeGraphQt.NodeObject.create_property">
 <code class="descname">create_property</code><span class="sig-paren">(</span><em>name</em>, <em>value</em>, <em>items=None</em>, <em>range=None</em>, <em>widget_type=0</em>, <em>tab=None</em>, <em>ext=None</em>, <em>funcs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeObject.create_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a custom property to the node.</p>
-<dl class="simple">
-<dt>Widget Types:</dt><dd><ul class="simple">
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Custom node properties bin widget
+<a class="reference internal" href="../custom_widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Here are some constants variables used to define the node
+widget type in the <code class="docutils literal notranslate"><span class="pre">PropertiesBinWidget</span></code>.</p>
+<ul class="simple">
 <li><p><a class="reference internal" href="../constants.html#NodeGraphQt.constants.NODE_PROP" title="NodeGraphQt.constants.NODE_PROP"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraphQt.constants.NODE_PROP</span></code></a></p></li>
 <li><p><a class="reference internal" href="../constants.html#NodeGraphQt.constants.NODE_PROP_QLABEL" title="NodeGraphQt.constants.NODE_PROP_QLABEL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraphQt.constants.NODE_PROP_QLABEL</span></code></a></p></li>
 <li><p><a class="reference internal" href="../constants.html#NodeGraphQt.constants.NODE_PROP_QLINEEDIT" title="NodeGraphQt.constants.NODE_PROP_QLINEEDIT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraphQt.constants.NODE_PROP_QLINEEDIT</span></code></a></p></li>
@@ -345,11 +353,6 @@ nodes inherit from.</p>
 <li><p><a class="reference internal" href="../constants.html#NodeGraphQt.constants.NODE_PROP_INT" title="NodeGraphQt.constants.NODE_PROP_INT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraphQt.constants.NODE_PROP_INT</span></code></a></p></li>
 <li><p><a class="reference internal" href="../constants.html#NodeGraphQt.constants.NODE_PROP_BUTTON" title="NodeGraphQt.constants.NODE_PROP_BUTTON"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraphQt.constants.NODE_PROP_BUTTON</span></code></a></p></li>
 </ul>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="../custom_widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -358,7 +361,8 @@ nodes inherit from.</p>
 <li><p><strong>value</strong> (<em>object</em>) – data.</p></li>
 <li><p><strong>items</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – items used by widget type <code class="docutils literal notranslate"><span class="pre">NODE_PROP_QCOMBO</span></code></p></li>
 <li><p><strong>range</strong> (<em>tuple</em><em>)</em>) – <code class="docutils literal notranslate"><span class="pre">(min,</span> <span class="pre">max)</span></code> values used by <code class="docutils literal notranslate"><span class="pre">NODE_PROP_SLIDER</span></code></p></li>
-<li><p><strong>widget_type</strong> (<em>int</em>) – widget flag to display in the <code class="docutils literal notranslate"><span class="pre">PropertiesBinWidget</span></code></p></li>
+<li><p><strong>widget_type</strong> (<em>int</em>) – widget flag to display in the
+<a class="reference internal" href="../custom_widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a></p></li>
 <li><p><strong>tab</strong> (<em>str</em>) – name of the widget tab to display in the properties bin.</p></li>
 <li><p><strong>ext</strong> (<em>str</em>) – file ext of <code class="docutils literal notranslate"><span class="pre">NODE_PROP_FILE</span></code></p></li>
 <li><p><strong>funcs</strong> (<em>list</em><em>[</em><em>function</em><em>]</em>) – </p></li>
