@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>BaseNode &mdash; NodeGraphQt 0.1.1 documentation</title>
+  <title>BaseNode &mdash; NodeGraphQt 0.1.2 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -109,7 +109,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Module Widgets</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../custom_widgets.html">Custom Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_widgets.html">Builtin Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../node_widgets.html">Node Widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
@@ -278,6 +278,28 @@ up to the <a class="reference internal" href="NodeObject.html#NodeGraphQt.NodeOb
 <li><p><strong>name</strong> (<em>str</em>) – name for the custom property.</p></li>
 <li><p><strong>label</strong> (<em>str</em>) – label to be displayed.</p></li>
 <li><p><strong>items</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – items to be added into the menu.</p></li>
+<li><p><strong>tab</strong> (<em>str</em>) – name of the widget tab to display in.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="NodeGraphQt.BaseNode.add_custom_widget">
+<code class="descname">add_custom_widget</code><span class="sig-paren">(</span><em>widget</em>, <em>widget_type=2</em>, <em>tab=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.BaseNode.add_custom_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a custom node widget into the node.</p>
+<p>see example <a class="reference internal" href="../examples/ex_node.html#embedding-custom-widgets"><span class="std std-ref">Embedding Custom Widgets</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">value_changed</span></code> signal from the added node widget is wired
+up to the <a class="reference internal" href="NodeObject.html#NodeGraphQt.NodeObject.set_property" title="NodeGraphQt.NodeObject.set_property"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeObject.set_property()</span></code></a> function.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget_cls</strong> (<a class="reference internal" href="../node_widgets.html#NodeGraphQt.NodeBaseWidget" title="NodeGraphQt.NodeBaseWidget"><em>NodeBaseWidget</em></a>) – node widget class object.</p></li>
+<li><p><strong>widget_type</strong> – widget flag to display in the
+<a class="reference internal" href="../custom_widgets.html#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a> (default: QLabel).</p></li>
 <li><p><strong>tab</strong> (<em>str</em>) – name of the widget tab to display in.</p></li>
 </ul>
 </dd>
@@ -537,7 +559,7 @@ up to the <a class="reference internal" href="NodeObject.html#NodeGraphQt.NodeOb
 <dd class="field-even"><p>embedded node widget.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget" title="NodeGraphQt.widgets.node_widgets.NodeBaseWidget">NodeBaseWidget</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../node_widgets.html#NodeGraphQt.NodeBaseWidget" title="NodeGraphQt.NodeBaseWidget">NodeBaseWidget</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -836,7 +858,7 @@ when the node is been deserialized, all ports will restore.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Johnny Chan.
+        &#169; Copyright 2021, Johnny Chan.
 
     </p>
   </div> 

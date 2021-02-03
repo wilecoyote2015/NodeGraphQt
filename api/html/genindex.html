@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; NodeGraphQt 0.1.1 documentation</title>
+  <title>Index &mdash; NodeGraphQt 0.1.2 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -102,7 +102,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Module Widgets</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="custom_widgets.html">Custom Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_widgets.html">Builtin Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="node_widgets.html">Node Widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
@@ -236,6 +236,8 @@
         <li><a href="menu.html#NodeGraphQt.NodesMenu.add_command">(NodeGraphQt.NodesMenu method)</a>
 </li>
       </ul></li>
+      <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.add_custom_widget">add_custom_widget() (NodeGraphQt.BaseNode method)</a>
+</li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.add_file_input">add_file_input() (NodeGraphQt.BaseNode method)</a>
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.add_float_input">add_float_input() (NodeGraphQt.BaseNode method)</a>
@@ -404,11 +406,17 @@
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_context_menu">get_context_menu() (NodeGraphQt.NodeGraph method)</a>
 </li>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget.get_icon">get_icon() (NodeGraphQt.widgets.node_widgets.NodeBaseWidget method)</a>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.get_custom_widget">get_custom_widget() (NodeGraphQt.NodeBaseWidget method)</a>
+</li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.get_icon">get_icon() (NodeGraphQt.NodeBaseWidget method)</a>
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.get_input">get_input() (NodeGraphQt.BaseNode method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.get_label">get_label() (NodeGraphQt.NodeBaseWidget method)</a>
+</li>
       <li><a href="menu.html#NodeGraphQt.NodeGraphMenu.get_menu">get_menu() (NodeGraphQt.NodeGraphMenu method)</a>
+</li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.get_name">get_name() (NodeGraphQt.NodeBaseWidget method)</a>
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_node_by_id">get_node_by_id() (NodeGraphQt.NodeGraph method)</a>
 </li>
@@ -416,16 +424,28 @@
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_node_by_path">get_node_by_path() (NodeGraphQt.NodeGraph method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_node_space">get_node_space() (NodeGraphQt.NodeGraph method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.get_output">get_output() (NodeGraphQt.BaseNode method)</a>
 </li>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.get_property">get_property() (NodeGraphQt.NodeObject method)</a>
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_unique_name">get_unique_name() (NodeGraphQt.NodeGraph method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.get_value">get_value() (NodeGraphQt.NodeBaseWidget method)</a>
+
+      <ul>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeCheckBox.get_value">(NodeGraphQt.widgets.node_widgets.NodeCheckBox method)</a>
+</li>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeComboBox.get_value">(NodeGraphQt.widgets.node_widgets.NodeComboBox method)</a>
+</li>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeFloatEdit.get_value">(NodeGraphQt.widgets.node_widgets.NodeFloatEdit method)</a>
+</li>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeLineEdit.get_value">(NodeGraphQt.widgets.node_widgets.NodeLineEdit method)</a>
+</li>
+      </ul></li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.get_widget">get_widget() (NodeGraphQt.BaseNode method)</a>
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.get_zoom">get_zoom() (NodeGraphQt.NodeGraph method)</a>
@@ -480,14 +500,12 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget.label">label (NodeGraphQt.widgets.node_widgets.NodeBaseWidget attribute)</a>
-</li>
       <li><a href="custom_widgets.html#NodeGraphQt.PropertiesBinWidget.limit">limit() (NodeGraphQt.PropertiesBinWidget method)</a>
+</li>
+      <li><a href="graph.html#NodeGraphQt.NodeGraph.load_dialog">load_dialog() (NodeGraphQt.NodeGraph method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#NodeGraphQt.NodeGraph.load_dialog">load_dialog() (NodeGraphQt.NodeGraph method)</a>
-</li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.load_session">load_session() (NodeGraphQt.NodeGraph method)</a>
 </li>
       <li><a href="custom_widgets.html#NodeGraphQt.PropertiesBinWidget.lock_bin">lock_bin() (NodeGraphQt.PropertiesBinWidget method)</a>
@@ -516,8 +534,6 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget.name">name (NodeGraphQt.widgets.node_widgets.NodeBaseWidget attribute)</a>
-</li>
       <li><a href="menu.html#NodeGraphQt.NodeGraphCommand.name">name() (NodeGraphQt.NodeGraphCommand method)</a>
 
       <ul>
@@ -566,10 +582,10 @@
 </li>
       <li><a href="constants.html#NodeGraphQt.constants.NODE_PROP_QLINEEDIT">NODE_PROP_QLINEEDIT (in module NodeGraphQt.constants)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="constants.html#NodeGraphQt.constants.NODE_PROP_QSPINBOX">NODE_PROP_QSPINBOX (in module NodeGraphQt.constants)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="constants.html#NodeGraphQt.constants.NODE_PROP_QTEXTEDIT">NODE_PROP_QTEXTEDIT (in module NodeGraphQt.constants)</a>
 </li>
       <li><a href="constants.html#NodeGraphQt.constants.NODE_PROP_SLIDER">NODE_PROP_SLIDER (in module NodeGraphQt.constants)</a>
@@ -584,7 +600,7 @@
 </li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.node_selection_changed">node_selection_changed (NodeGraphQt.NodeGraph attribute)</a>
 </li>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget">NodeBaseWidget (class in NodeGraphQt.widgets.node_widgets)</a>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget">NodeBaseWidget (class in NodeGraphQt)</a>
 </li>
       <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeCheckBox">NodeCheckBox (class in NodeGraphQt.widgets.node_widgets)</a>
 </li>
@@ -628,10 +644,12 @@
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.on_input_disconnected">on_input_disconnected() (NodeGraphQt.BaseNode method)</a>
 </li>
-      <li><a href="constants.html#NodeGraphQt.constants.OUT_PORT">OUT_PORT (in module NodeGraphQt.constants)</a>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.on_value_changed">on_value_changed() (NodeGraphQt.NodeBaseWidget method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="constants.html#NodeGraphQt.constants.OUT_PORT">OUT_PORT (in module NodeGraphQt.constants)</a>
+</li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.output">output() (NodeGraphQt.BaseNode method)</a>
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.output_ports">output_ports() (NodeGraphQt.BaseNode method)</a>
@@ -736,6 +754,8 @@
 </li>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_color">set_color() (NodeGraphQt.NodeObject method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.set_custom_widget">set_custom_widget() (NodeGraphQt.NodeBaseWidget method)</a>
+</li>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_disabled">set_disabled() (NodeGraphQt.NodeObject method)</a>
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.set_dynamic_port">set_dynamic_port() (NodeGraphQt.BaseNode method)</a>
@@ -754,14 +774,20 @@
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.set_input">set_input() (NodeGraphQt.BaseNode method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.set_label">set_label() (NodeGraphQt.NodeBaseWidget method)</a>
+</li>
       <li><a href="custom_widgets.html#NodeGraphQt.PropertiesBinWidget.set_limit">set_limit() (NodeGraphQt.PropertiesBinWidget method)</a>
 </li>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_model">set_model() (NodeGraphQt.NodeObject method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.set_name">set_name() (NodeGraphQt.NodeBaseWidget method)</a>
+
+      <ul>
+        <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_name">(NodeGraphQt.NodeObject method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_name">set_name() (NodeGraphQt.NodeObject method)</a>
-</li>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.set_node_space">set_node_space() (NodeGraphQt.NodeGraph method)</a>
 </li>
       <li><a href="nodes/BaseNode.html#NodeGraphQt.BaseNode.set_output">set_output() (NodeGraphQt.BaseNode method)</a>
@@ -784,6 +810,16 @@
 </li>
       <li><a href="nodes/BackdropNode.html#NodeGraphQt.BackdropNode.set_text">set_text() (NodeGraphQt.BackdropNode method)</a>
 </li>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.set_value">set_value() (NodeGraphQt.NodeBaseWidget method)</a>
+
+      <ul>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeCheckBox.set_value">(NodeGraphQt.widgets.node_widgets.NodeCheckBox method)</a>
+</li>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeComboBox.set_value">(NodeGraphQt.widgets.node_widgets.NodeComboBox method)</a>
+</li>
+        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeLineEdit.set_value">(NodeGraphQt.widgets.node_widgets.NodeLineEdit method)</a>
+</li>
+      </ul></li>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.set_view">set_view() (NodeGraphQt.NodeObject method)</a>
 </li>
       <li><a href="nodes/Port.html#NodeGraphQt.Port.set_visible">set_visible() (NodeGraphQt.Port method)</a>
@@ -854,28 +890,18 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeCheckBox.value">value (NodeGraphQt.widgets.node_widgets.NodeCheckBox attribute)</a>
-
-      <ul>
-        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeComboBox.value">(NodeGraphQt.widgets.node_widgets.NodeComboBox attribute)</a>
-</li>
-        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeFloatEdit.value">(NodeGraphQt.widgets.node_widgets.NodeFloatEdit attribute)</a>
-</li>
-        <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeLineEdit.value">(NodeGraphQt.widgets.node_widgets.NodeLineEdit attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="node_widgets.html#NodeGraphQt.widgets.node_widgets.NodeBaseWidget.value_changed">value_changed (NodeGraphQt.widgets.node_widgets.NodeBaseWidget attribute)</a>
+      <li><a href="node_widgets.html#NodeGraphQt.NodeBaseWidget.value_changed">value_changed (NodeGraphQt.NodeBaseWidget attribute)</a>
 </li>
       <li><a href="constants.html#NodeGraphQt.constants.VERSION">VERSION (in module NodeGraphQt.constants)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="nodes/NodeObject.html#NodeGraphQt.NodeObject.view">view (NodeGraphQt.NodeObject attribute)</a>
 
       <ul>
         <li><a href="nodes/Port.html#NodeGraphQt.Port.view">(NodeGraphQt.Port attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="graph.html#NodeGraphQt.NodeGraph.viewer">viewer() (NodeGraphQt.NodeGraph method)</a>
 </li>
       <li><a href="constants.html#NodeGraphQt.constants.VIEWER_GRID_DOTS">VIEWER_GRID_DOTS (in module NodeGraphQt.constants)</a>
@@ -928,7 +954,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Johnny Chan.
+        &#169; Copyright 2021, Johnny Chan.
 
     </p>
   </div> 
