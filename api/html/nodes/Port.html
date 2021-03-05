@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Port &mdash; NodeGraphQt 0.1.2 documentation</title>
+  <title>Port &mdash; NodeGraphQt 0.1.3 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1.2
+                0.1.3
               </div>
             
           
@@ -249,6 +249,31 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="NodeGraphQt.Port.lock">
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the port so new pipe connections can’t be connected and
+current connected pipes can’t be disconnected.</p>
+<p>This is the same as calling <a class="reference internal" href="#NodeGraphQt.Port.set_locked" title="NodeGraphQt.Port.set_locked"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Port.set_locked()</span></code></a> with the arg
+set to <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="NodeGraphQt.Port.locked">
+<code class="descname">locked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the locked state.</p>
+<p>If ports are locked then new pipe connections can’t be connected
+and current connected pipes can’t be disconnected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if locked.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="NodeGraphQt.Port.multi_connection">
 <code class="descname">multi_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.multi_connection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the ports is a single connection or not.</p>
@@ -291,6 +316,18 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="NodeGraphQt.Port.set_locked">
+<code class="descname">set_locked</code><span class="sig-paren">(</span><em>locked=False</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.set_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the port locked state. When locked pipe connections can’t be
+connected or disconnected from this port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>locked</strong> (<em>Bool</em>) – true if locked.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="NodeGraphQt.Port.set_visible">
 <code class="descname">set_visible</code><span class="sig-paren">(</span><em>visible=True</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.set_visible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets weather the port should be visible or not.</p>
@@ -320,6 +357,15 @@
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="NodeGraphQt.Port.unlock">
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlock the port so new pipe connections can be connected and
+existing connected pipes can be disconnected.</p>
+<p>This is the same as calling <a class="reference internal" href="#NodeGraphQt.Port.set_locked" title="NodeGraphQt.Port.set_locked"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Port.set_locked()</span></code></a> with the arg
+set to <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd></dl>
 
 <dl class="method">
