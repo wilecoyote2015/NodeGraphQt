@@ -222,7 +222,9 @@
 23
 24
 25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">QtWidgets</span>
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Qt</span> <span class="kn">import</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeGraph</span>
 
 <span class="k">class</span> <span class="nc">MyNode</span><span class="p">(</span><span class="n">BaseNode</span><span class="p">):</span>
 
@@ -242,9 +244,9 @@
     <span class="n">node_graph</span> <span class="o">=</span> <span class="n">NodeGraph</span><span class="p">()</span>
     <span class="n">node_graph</span><span class="o">.</span><span class="n">register_node</span><span class="p">(</span><span class="n">MyNode</span><span class="p">)</span>
     <span class="n">node_graph</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="hll">    <span class="c1"># here we create a couple nodes in the node graph.</span>
-</span>    <span class="n">node_a</span> <span class="o">=</span> <span class="n">node_graph</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s1">&#39;com.chantasticvfx.MyNode&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;node a&#39;</span><span class="p">)</span>
+<span class="hll">
+</span>    <span class="c1"># here we create a couple nodes in the node graph.</span>
+    <span class="n">node_a</span> <span class="o">=</span> <span class="n">node_graph</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s1">&#39;com.chantasticvfx.MyNode&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;node a&#39;</span><span class="p">)</span>
     <span class="n">node_b</span> <span class="o">=</span> <span class="n">node_graph</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s1">&#39;com.chantasticvfx.MyNode&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;node b&#39;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
@@ -397,7 +399,9 @@ example to simply embed a <code class="docutils literal notranslate"><span class
 94
 95
 96
-97</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeBaseWidget</span>
+97
+98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Qt</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeBaseWidget</span>
 
 <span class="k">class</span> <span class="nc">MyCustomWidget</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -433,9 +437,9 @@ example to simply embed a <code class="docutils literal notranslate"><span class
         <span class="c1"># set the label above the widget.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Custom Widget&#39;</span><span class="p">)</span>
 
-        <span class="c1"># set the custom widget.</span>
-<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">set_custom_widget</span><span class="p">(</span><span class="n">MyCustomWidget</span><span class="p">())</span>
-</span>
+<span class="hll">        <span class="c1"># set the custom widget.</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set_custom_widget</span><span class="p">(</span><span class="n">MyCustomWidget</span><span class="p">())</span>
+
         <span class="c1"># connect up the signals &amp; slots.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wire_signals</span><span class="p">()</span>
 
@@ -491,10 +495,10 @@ example to simply embed a <code class="docutils literal notranslate"><span class
         <span class="bp">self</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span><span class="s1">&#39;out&#39;</span><span class="p">)</span>
 
-        <span class="c1"># add custom widget to node with &quot;node.view&quot; as the parent.</span>
-<span class="hll">        <span class="n">node_widget</span> <span class="o">=</span> <span class="n">NodeWidgetWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
-</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">add_custom_widget</span><span class="p">(</span><span class="n">node_widget</span><span class="p">,</span> <span class="n">tab</span><span class="o">=</span><span class="s1">&#39;Custom&#39;</span><span class="p">)</span>
-</span></pre></div>
+<span class="hll">        <span class="c1"># add custom widget to node with &quot;node.view&quot; as the parent.</span>
+</span><span class="hll">        <span class="n">node_widget</span> <span class="o">=</span> <span class="n">NodeWidgetWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">add_custom_widget</span><span class="p">(</span><span class="n">node_widget</span><span class="p">,</span> <span class="n">tab</span><span class="o">=</span><span class="s1">&#39;Custom&#39;</span><span class="p">)</span>
+</pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="connecting-nodes">
@@ -579,7 +583,9 @@ example to simply embed a <code class="docutils literal notranslate"><span class
 42
 43
 44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">PropertiesBinWidget</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span>
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Qt</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">BaseNode</span><span class="p">,</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">PropertiesBinWidget</span>
 
 
 <span class="k">class</span> <span class="nc">MyNode</span><span class="p">(</span><span class="n">BaseNode</span><span class="p">):</span>

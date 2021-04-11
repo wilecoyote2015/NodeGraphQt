@@ -317,12 +317,15 @@ and current connected pipes can’t be disconnected.</p>
 
 <dl class="method">
 <dt id="NodeGraphQt.Port.set_locked">
-<code class="descname">set_locked</code><span class="sig-paren">(</span><em>locked=False</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.set_locked" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_locked</code><span class="sig-paren">(</span><em>state=False</em>, <em>connected_ports=True</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.Port.set_locked" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the port locked state. When locked pipe connections can’t be
 connected or disconnected from this port.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>locked</strong> (<em>Bool</em>) – true if locked.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>Bool</em>) – port lock state.</p></li>
+<li><p><strong>connected_ports</strong> (<em>Bool</em>) – apply to lock state to connected ports.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
