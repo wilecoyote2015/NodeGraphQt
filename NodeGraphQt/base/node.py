@@ -1,4 +1,6 @@
 #!/usr/bin/python
+from collections import OrderedDict
+
 from .commands import PropertyChangedCmd
 from .model import NodeModel
 from .port import Port
@@ -974,27 +976,31 @@ class BaseNode(NodeObject):
 
     def set_ports(self, port_data):
         """
-        Set node input and output ports.
+        Set node input and output ports from specified port data.
+
+        example port data:
+            {
+                'input_ports':
+                    [{
+                        'name': 'input',
+                        'multi_connection': True,
+                        'display_name': 'Input',
+                        'data_type': 'NoneType',
+                        'locked': False
+                    }],
+                'output_ports':
+                    [{
+                        'name': 'output',
+                        'multi_connection': True,
+                        'display_name': 'Output',
+                        'data_type': 'NoneType',
+                        'locked': False
+                    }]
+            }
 
         Args:
             port_data(dict): port data.
         """
-
-        # port data eg.
-        # {
-        #     'input_ports':
-        #         [{'name': ...,
-        #           'multi_connection': ...,
-        #           'display_name': ...,
-        #           'data_type': ...
-        #           }, ...],
-        #     'output_ports':
-        #         [{'name': ...,
-        #           'multi_connection': ...,
-        #           'display_name': ...,
-        #           'data_type': ...
-        #           }, ...]
-        # }
 
         for port in self._inputs:
             self._view.delete_input(port.view)
@@ -1107,7 +1113,7 @@ class BaseNode(NodeObject):
         Returns:
             dict: {<input_port>: <node_list>}
         """
-        nodes = {}
+        nodes = OrderedDict()
         for p in self.input_ports():
             nodes[p] = [cp.node() for cp in p.connected_ports()]
         return nodes
@@ -1119,7 +1125,7 @@ class BaseNode(NodeObject):
         Returns:
             dict: {<output_port>: <node_list>}
         """
-        nodes = {}
+        nodes = OrderedDict()
         for p in self.output_ports():
             nodes[p] = [cp.node() for cp in p.connected_ports()]
         return nodes
@@ -1212,11 +1218,54 @@ class BackdropNode(NodeObject):
         self.create_property('backdrop_text', '',
                              widget_type=NODE_PROP_QTEXTEDIT, tab='Backdrop')
 
+    def on_backdrop_updated(self, update_prop, value=None):
+        """
+        Slot triggered by the "on_backdrop_updated" signal from
+        the node graph.
+
+        Args:
+            update_prop (str): update property type.
+            value (object): update value (optional)
+        """
+        if update_prop == 'sizer_mouse_release':
+            self.graph.begin_undo('resized "{}"'.format(self.name()))
+            self.set_property('width', value['width'])
+            self.set_property('height', value['height'])
+            self.set_pos(*value['pos'])
+            self.graph.end_undo()
+        elif update_prop == 'sizer_double_clicked':
+            self.graph.begin_undo('"{}" auto resize'.format(self.name()))
+            self.set_property('width', value['width'])
+            self.set_property('height', value['height'])
+            self.set_pos(*value['pos'])
+            self.graph.end_undo()
+
     def auto_size(self):
         """
         Auto resize the backdrop node to fit around the intersecting nodes.
         """
-        self.view.auto_resize()
+        self.graph.begin_undo('"{}" auto resize'.format(self.name()))
+        size = self.view.calc_backdrop_size()
+        self.set_property('width', size['width'])
+        self.set_property('height', size['height'])
+        self.set_pos(*size['pos'])
+        self.graph.end_undo()
+
+    def wrap_nodes(self, nodes):
+        """
+        Set the backdrop size to fit around specified nodes.
+
+        Args:
+            nodes (list[NodeGraphQt.NodeObject]): list of nodes.
+        """
+        if not nodes:
+            return
+        self.graph.begin_undo('"{}" wrap nodes'.format(self.name()))
+        size = self.view.calc_backdrop_size([n.view for n in nodes])
+        self.set_property('width', size['width'])
+        self.set_property('height', size['height'])
+        self.set_pos(*size['pos'])
+        self.graph.end_undo()
 
     def nodes(self):
         """

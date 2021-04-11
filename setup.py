@@ -1,8 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import os
+import sys
+
 import setuptools
 
-import NodeGraphQt.pkg_info as pkg_info
+sys.path.append(os.path.join(os.path.dirname(__file__), "NodeGraphQt"))
+
+import pkg_info
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -35,7 +40,10 @@ setuptools.setup(
     classifiers=classifiers,
     install_requires=requirements,
     include_package_data=True,
-    python_requires='>=3.6'
+    python_requires='>=3.6',
+    extras_require={
+        'PySide2': ['PySide2>=5.12']
+    }
 )
 
 

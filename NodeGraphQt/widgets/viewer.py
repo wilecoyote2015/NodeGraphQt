@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 import math
 
+from Qt import QtGui, QtCore, QtWidgets, QtOpenGL
+
 from .dialogs import BaseDialog, FileDialog
 from .scene import NodeScene
 from .tab_search import TabSearchMenuWidget
-from .. import QtGui, QtCore, QtWidgets, QtOpenGL
 from ..base.menu import BaseMenu
 from ..constants import (IN_PORT, OUT_PORT,
                          PIPE_LAYOUT_CURVED)
@@ -37,6 +38,7 @@ class NodeViewer(QtWidgets.QGraphicsView):
     insert_node = QtCore.Signal(object, str, dict)
     need_show_tab_search = QtCore.Signal()
     node_name_changed = QtCore.Signal(str, str)
+    node_backdrop_updated = QtCore.Signal(str, str, object)
 
     # pass through signals that are translated into "NodeGraph()" signals.
     node_selected = QtCore.Signal(str)
@@ -127,6 +129,7 @@ class NodeViewer(QtWidgets.QGraphicsView):
 
         if value == 0.0:
             return
+
         scale = (0.9 + sensitivity) if value < 0.0 else (1.1 - sensitivity)
         zoom = self.get_zoom()
         if ZOOM_MIN >= zoom:
@@ -197,8 +200,10 @@ class NodeViewer(QtWidgets.QGraphicsView):
     # --- reimplemented events ---
 
     def resizeEvent(self, event):
-        delta = max(self.size().width() / self._last_size.width(),
-                    self.size().height() / self._last_size.height())
+        w, h = self.size().width(), self.size().height()
+        if 0 in [w, h]:
+            self.resize(self._last_size)
+        delta = max(w / self._last_size.width(), h / self._last_size.height())
         self._set_viewer_zoom(delta)
         self._last_size = self.size()
         super(NodeViewer, self).resizeEvent(event)
@@ -420,8 +425,11 @@ class NodeViewer(QtWidgets.QGraphicsView):
                     if isinstance(item, Pipe) and item.isVisible():
                         if not item.input_port:
                             continue
-                        if not item.input_port.node is node and \
-                                not item.output_port.node is node:
+                        port_node_check = all([
+                            not item.input_port.node is node,
+                            not item.output_port.node is node
+                        ])
+                        if port_node_check:
                             item.setSelected(True)
                             self.COLLIDING_state = True
                             break
@@ -441,18 +449,18 @@ class NodeViewer(QtWidgets.QGraphicsView):
 
     def dropEvent(self, event):
         pos = self.mapToScene(event.pos())
-        event.setDropAction(QtCore.Qt.MoveAction)
+        event.setDropAction(QtCore.Qt.CopyAction)
         self.data_dropped.emit(
             event.mimeData(), QtCore.QPoint(pos.x(), pos.y()))
 
     def dragEnterEvent(self, event):
-        if event.mimeData().hasFormat('text/plain'):
+        if event.mimeData().hasFormat('text/uri-list'):
             event.accept()
         else:
             event.ignore()
 
     def dragMoveEvent(self, event):
-        if event.mimeData().hasFormat('text/plain'):
+        if event.mimeData().hasFormat('text/uri-list'):
             event.accept()
         else:
             event.ignore()
