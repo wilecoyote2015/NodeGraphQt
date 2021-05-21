@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Builtin Widgets &mdash; NodeGraphQt 0.1.3 documentation</title>
+  <title>Builtin Widgets &mdash; NodeGraphQt 0.1.5 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -69,7 +72,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.5
               </div>
             
           
@@ -94,7 +97,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <p class="caption"><span class="caption-text">API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graph.html">Graphs</a></li>
@@ -187,36 +190,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="builtin-widgets">
+  <section id="builtin-widgets">
 <h1>Builtin Widgets<a class="headerlink" href="#builtin-widgets" title="Permalink to this headline">¶</a></h1>
 <p>Here’s a few custom widgets that included with the <code class="docutils literal notranslate"><span class="pre">NodeGraphQt</span></code> framework.</p>
-<div class="section" id="properties-bin">
+<section id="properties-bin">
 <h2>Properties Bin<a class="headerlink" href="#properties-bin" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="#NodeGraphQt.PropertiesBinWidget" title="NodeGraphQt.PropertiesBinWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.PropertiesBinWidget</span></code></a> is a list widget for displaying
 and editing a nodes properties.</p>
 <img alt="_images/prop_bin.png" src="_images/prop_bin.png" style="width: 950px;" />
 <p>example</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">PropertiesBinWidget</span>
-
-<span class="c1"># create node graph.</span>
-<span class="n">graph</span> <span class="o">=</span> <span class="n">NodeGraph</span><span class="p">()</span>
-
-<span class="c1"># create properties bin widget.</span>
-<span class="n">properties_bin</span> <span class="o">=</span> <span class="n">PropertiesBinWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">node_graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span>
-<span class="n">properties_bin</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">PropertiesBinWidget</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="c1"># create node graph.</span>
+<span class="linenos">4</span><span class="n">graph</span> <span class="o">=</span> <span class="n">NodeGraph</span><span class="p">()</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="c1"># create properties bin widget.</span>
+<span class="linenos">7</span><span class="n">properties_bin</span> <span class="o">=</span> <span class="n">PropertiesBinWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">node_graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span>
+<span class="linenos">8</span><span class="n">properties_bin</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <hr class="docutils" />
-<dl class="class">
-<dt id="NodeGraphQt.PropertiesBinWidget">
-<em class="property">class </em><code class="descclassname">NodeGraphQt.</code><code class="descname">PropertiesBinWidget</code><span class="sig-paren">(</span><em>parent=None</em>, <em>node_graph=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">NodeGraphQt.</span></span><span class="sig-name descname"><span class="pre">PropertiesBinWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node properties bin for displaying properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -226,9 +222,9 @@ and editing a nodes properties.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.add_node">
-<code class="descname">add_node</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.add_node" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.add_node">
+<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.add_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add node to the properties bin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -237,15 +233,15 @@ and editing a nodes properties.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.clear_bin">
-<code class="descname">clear_bin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.clear_bin" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.clear_bin">
+<span class="sig-name descname"><span class="pre">clear_bin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.clear_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the properties bin.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.limit">
-<code class="descname">limit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.limit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the limit for how many nodes can be loaded into the bin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -257,15 +253,15 @@ and editing a nodes properties.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.lock_bin">
-<code class="descname">lock_bin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.lock_bin" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.lock_bin">
+<span class="sig-name descname"><span class="pre">lock_bin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.lock_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lock/UnLock the properties bin.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.prop_widget">
-<code class="descname">prop_widget</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.prop_widget" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.prop_widget">
+<span class="sig-name descname"><span class="pre">prop_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.prop_widget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the node property widget.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,9 +276,9 @@ and editing a nodes properties.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.remove_node">
-<code class="descname">remove_node</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.remove_node" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.remove_node">
+<span class="sig-name descname"><span class="pre">remove_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.remove_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove node from the properties bin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -291,9 +287,9 @@ and editing a nodes properties.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.PropertiesBinWidget.set_limit">
-<code class="descname">set_limit</code><span class="sig-paren">(</span><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.set_limit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.PropertiesBinWidget.set_limit">
+<span class="sig-name descname"><span class="pre">set_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.PropertiesBinWidget.set_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set limit of nodes to display.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -304,35 +300,28 @@ and editing a nodes properties.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="nodes-tree">
+</section>
+<section id="nodes-tree">
 <h2>Nodes Tree<a class="headerlink" href="#nodes-tree" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="#NodeGraphQt.NodeTreeWidget" title="NodeGraphQt.NodeTreeWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.NodeTreeWidget</span></code></a> is a widget for displaying all
 registered nodes from the node graph with this widget a user can create nodes
 by dragging and dropping.</p>
 <img alt="_images/nodes_tree.png" src="_images/nodes_tree.png" style="width: 300px;" />
 <p>example</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">NodeTreeWidget</span>
-
-<span class="c1"># create node graph.</span>
-<span class="n">graph</span> <span class="o">=</span> <span class="n">NodeGraph</span><span class="p">()</span>
-
-<span class="c1"># create node tree widget.</span>
-<span class="n">nodes_tree</span> <span class="o">=</span> <span class="n">NodeTreeWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">node_graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span>
-<span class="n">nodes_tree</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">NodeGraphQt</span> <span class="kn">import</span> <span class="n">NodeGraph</span><span class="p">,</span> <span class="n">NodeTreeWidget</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="c1"># create node graph.</span>
+<span class="linenos">4</span><span class="n">graph</span> <span class="o">=</span> <span class="n">NodeGraph</span><span class="p">()</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="c1"># create node tree widget.</span>
+<span class="linenos">7</span><span class="n">nodes_tree</span> <span class="o">=</span> <span class="n">NodeTreeWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">node_graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span>
+<span class="linenos">8</span><span class="n">nodes_tree</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <hr class="docutils" />
-<dl class="class">
-<dt id="NodeGraphQt.NodeTreeWidget">
-<em class="property">class </em><code class="descclassname">NodeGraphQt.</code><code class="descname">NodeTreeWidget</code><span class="sig-paren">(</span><em>parent=None</em>, <em>node_graph=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="NodeGraphQt.NodeTreeWidget">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">NodeGraphQt.</span></span><span class="sig-name descname"><span class="pre">NodeTreeWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node tree for displaying node types.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -342,9 +331,9 @@ by dragging and dropping.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
-<dt id="NodeGraphQt.NodeTreeWidget.set_category_label">
-<code class="descname">set_category_label</code><span class="sig-paren">(</span><em>category</em>, <em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget.set_category_label" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.NodeTreeWidget.set_category_label">
+<span class="sig-name descname"><span class="pre">set_category_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget.set_category_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set custom display label for a node category.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -356,24 +345,24 @@ by dragging and dropping.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="NodeGraphQt.NodeTreeWidget.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget.update" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.NodeTreeWidget.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeTreeWidget.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update and refresh the node tree widget.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="publish-node">
+</section>
+<section id="publish-node">
 <h2>Publish Node<a class="headerlink" href="#publish-node" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="#NodeGraphQt.NodePublishWidget" title="NodeGraphQt.NodePublishWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeGraphQt.NodePublishWidget</span></code></a> is a simple widget for publishing
 nodes to a serialized json formatted file.</p>
 <img alt="_images/node_publish_dialog.png" src="_images/node_publish_dialog.png" style="width: 411px;" />
 <hr class="docutils" />
-<dl class="class">
-<dt id="NodeGraphQt.NodePublishWidget">
-<em class="property">class </em><code class="descclassname">NodeGraphQt.</code><code class="descname">NodePublishWidget</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodePublishWidget" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="NodeGraphQt.NodePublishWidget">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">NodeGraphQt.</span></span><span class="sig-name descname"><span class="pre">NodePublishWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodePublishWidget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node publish dialog widget for publishing nodes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -382,8 +371,8 @@ nodes to a serialized json formatted file.</p>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
