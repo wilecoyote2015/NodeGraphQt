@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from .. import QtGui, QtCore, QtWidgets
+from Qt import QtGui, QtCore, QtWidgets
 
 from ..constants import (
     IN_PORT, OUT_PORT,
@@ -23,6 +23,7 @@ class PortItem(QtWidgets.QGraphicsItem):
     def __init__(self, parent=None):
         super(PortItem, self).__init__(parent)
         self.setAcceptHoverEvents(True)
+        self.setCacheMode(ITEM_CACHE_MODE)
         self.setFlag(self.ItemIsSelectable, False)
         self.setFlag(self.ItemSendsScenePositionChanges, True)
         self.setZValue(Z_VAL_PORT)
@@ -38,8 +39,6 @@ class PortItem(QtWidgets.QGraphicsItem):
         self._port_type = None
         self._multi_connection = False
         self._locked = False
-
-        self.setCacheMode(ITEM_CACHE_MODE)
 
     def __str__(self):
         return '{}.PortItem("{}")'.format(self.__module__, self.name)
@@ -132,11 +131,11 @@ class PortItem(QtWidgets.QGraphicsItem):
         super(PortItem, self).mouseReleaseEvent(event)
 
     def hoverEnterEvent(self, event):
-        self.hovered = True
+        self._hovered = True
         super(PortItem, self).hoverEnterEvent(event)
         
     def hoverLeaveEvent(self, event):
-        self.hovered = False
+        self._hovered = False
         super(PortItem, self).hoverLeaveEvent(event)
 
     def viewer_start_connection(self):
@@ -253,9 +252,6 @@ class PortItem(QtWidgets.QGraphicsItem):
     @port_type.setter
     def port_type(self, port_type):
         self._port_type = port_type
-
-    def delete(self):
-        [pipe.delete() for pipe in self.connected_pipes]
 
     def connect_to(self, port):
         if not port:

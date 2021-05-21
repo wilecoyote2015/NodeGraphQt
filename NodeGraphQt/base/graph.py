@@ -15,7 +15,7 @@ from .commands import (NodeAddedCmd,
 from .factory import NodeFactory
 from .menu import NodeGraphMenu, NodesMenu
 from .model import NodeGraphModel
-from .node import NodeObject, BaseNode, BackdropNode
+from .node import NodeObject, BackdropNode, BaseNode
 from .port import Port
 from ..constants import (
     URI_SCHEME, URN_SCHEME,
@@ -172,7 +172,7 @@ class NodeGraph(QtCore.QObject):
         node = self.get_node_by_id(node_id)
 
         # exclude the BackdropNode
-        if not isinstance(node, BaseNode):
+        if isinstance(node, BackdropNode):
             return
 
         disconnected = [(pipe.input_port, pipe.output_port)]
@@ -348,7 +348,7 @@ class NodeGraph(QtCore.QObject):
 
         Args:
             node_type (str): node identifier.
-            pos (tuple): x,y position for the node.
+            pos (tuple or list): x, y position for the node.
         """
         self.create_node(node_type, pos=pos)
 
@@ -453,7 +453,7 @@ class NodeGraph(QtCore.QObject):
         """
         if self._undo_view is None:
             self._undo_view = QtWidgets.QUndoView(self._undo_stack)
-            self._undo_view.setWindowTitle("Undo View")
+            self._undo_view.setWindowTitle("Undo History")
         return self._undo_view
 
     @property
@@ -578,7 +578,7 @@ class NodeGraph(QtCore.QObject):
             * :attr:`NodeGraphQt.constants.VIEWER_GRID_LINES`
 
         Args:
-            mode (int): background styles.
+            mode (int): background style.
         """
         self.scene().grid_mode = mode
         self._viewer.force_update()
@@ -819,7 +819,7 @@ class NodeGraph(QtCore.QObject):
         """
         Return a list of all node types that have been registered.
 
-        Hint:
+        See Also:
             To register a node :meth:`NodeGraph.register_node`
 
         Returns:
@@ -843,7 +843,7 @@ class NodeGraph(QtCore.QObject):
         Register the nodes to the :meth:`NodeGraph.node_factory`
 
         Args:
-            nodes (list[NodeGraphQt.NodeObject]): list of nodes.
+            nodes (list): list of nodes.
         """
         [self._node_factory.register_node(n) for n in nodes]
         self._viewer.rebuild_tab_search()
@@ -865,7 +865,7 @@ class NodeGraph(QtCore.QObject):
             pos (list[int, int]): initial x, y position for the node (default: ``(0, 0)``).
 
         Returns:
-            NodeGraphQt.NodeObject: the created instance of the node.
+            BaseNode or NodeObject: the created instance of the node.
         """
         if not self._editable:
             return
@@ -1002,14 +1002,26 @@ class NodeGraph(QtCore.QObject):
             'node must be a instance of a NodeObject.'
         if node is self.root_node():
             return
-        self.nodes_deleted.emit([node.id])
+
+        node_id = node.id
+        self._undo_stack.beginMacro('delete node: "{}"'.format(node.name()))
+        if isinstance(node, BaseNode):
+            for p in node.input_ports():
+                if p.locked():
+                    p.set_locked(False, connected_ports=False)
+                p.clear_connections()
+            for p in node.output_ports():
+                if p.locked():
+                    p.set_locked(False, connected_ports=False)
+                p.clear_connections()
+
         if isinstance(node, SubGraph):
-            self._undo_stack.beginMacro('delete sub graph')
             self.delete_nodes(node.children())
             self._undo_stack.push(NodeRemovedCmd(self, node))
-            self._undo_stack.endMacro()
-        else:
-            self._undo_stack.push(NodeRemovedCmd(self, node))
+
+        self._undo_stack.push(NodeRemovedCmd(self, node))
+        self._undo_stack.endMacro()
+        self.nodes_deleted.emit([node_id])
 
     def delete_nodes(self, nodes):
         """
@@ -1018,14 +1030,29 @@ class NodeGraph(QtCore.QObject):
         Args:
             nodes (list[NodeGraphQt.BaseNode]): list of node instances.
         """
+        if not nodes:
+            return
         if not self._editable:
             return
+        node_ids = [n.id for n in nodes]
         root_node = self.root_node()
-        self.nodes_deleted.emit([n.id for n in nodes])
         self._undo_stack.beginMacro('delete nodes')
-        [self.delete_nodes(n.children()) for n in nodes if isinstance(n, SubGraph)]
-        [self._undo_stack.push(NodeRemovedCmd(self, n)) for n in nodes if n is not root_node]
+        for node in nodes:
+            if isinstance(node, BaseNode):
+                for p in node.input_ports():
+                    if p.locked():
+                        p.set_locked(False, connected_ports=False)
+                    p.clear_connections()
+                for p in node.output_ports():
+                    if p.locked():
+                        p.set_locked(False, connected_ports=False)
+                    p.clear_connections()
+            if isinstance(node, SubGraph):
+                self.delete_nodes(node.children())
+            if node is not root_node:
+                self._undo_stack.push(NodeRemovedCmd(self, node))
         self._undo_stack.endMacro()
+        self.nodes_deleted.emit(node_ids)
 
     def delete_pipe(self, pipe):
         self._on_connection_changed([(pipe.input_port, pipe.output_port)], [])
@@ -1285,6 +1312,7 @@ class NodeGraph(QtCore.QObject):
                 # set custom properties.
                 for prop, val in n_data.get('custom', {}).items():
                     node.model.set_property(prop, val)
+
                 nodes[n_id] = node
 
                 if isinstance(node, SubGraph):
