@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Graphs &mdash; NodeGraphQt 0.1.5 documentation</title>
+  <title>Graphs &mdash; NodeGraphQt 0.1.6 documentation</title>
   
 
   
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                0.1.5
+                0.1.6
               </div>
             
           
@@ -251,7 +251,9 @@ and the node graph.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.add_node">
 <span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.add_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a node into the node graph.</p>
+<dd><p>Add a node into the node graph.
+unlike the <a class="reference internal" href="#NodeGraphQt.NodeGraph.create_node" title="NodeGraphQt.NodeGraph.create_node"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeGraph.create_node()</span></code></a> function this will not
+trigger the <a class="reference internal" href="#NodeGraphQt.NodeGraph.node_created" title="NodeGraphQt.NodeGraph.node_created"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeGraph.node_created</span></code></a> signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -837,6 +839,25 @@ If no nodes are selected then all nodes in the graph will be framed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.pipe_collision">
+<span class="sig-name descname"><span class="pre">pipe_collision</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.pipe_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if pipe collision is enabled.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>To enable/disable pipe collision
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeGraph.set_pipe_collision_enabled()</span></code></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if pipe collision is enabled.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.question_dialog">
 <span class="sig-name descname"><span class="pre">question_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Node</span> <span class="pre">Graph'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.question_dialog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prompts a question open dialog with <code class="docutils literal notranslate"><span class="pre">&quot;Yes&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;No&quot;</span></code> buttons in
@@ -1105,6 +1126,23 @@ the node graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#NodeGraphQt.SubGraph" title="NodeGraphQt.SubGraph"><em>NodeGraphQt.SubGraph</em></a>) – node object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.set_pipe_collision">
+<span class="sig-name descname"><span class="pre">set_pipe_collision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.set_pipe_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/Disable pipe collision.</p>
+<p>When enabled dragging a node over a pipe will allow the node to be
+inserted as a new connection between the pipe.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#NodeGraphQt.NodeGraph.pipe_collision" title="NodeGraphQt.NodeGraph.pipe_collision"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeGraph.pipe_collision()</span></code></a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>) – False to disable pipe collision.</p>
 </dd>
 </dl>
 </dd></dl>
