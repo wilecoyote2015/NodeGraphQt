@@ -737,7 +737,7 @@ class NodeGraph(QtCore.QObject):
 
     def pipe_collision(self):
         """
-        Returns if pipe collision is enabled.
+        Returns if pipe collision is enabled in the current session.
 
         See Also:
             To enable/disable pipe collision
@@ -748,9 +748,9 @@ class NodeGraph(QtCore.QObject):
         """
         return self._model.pipe_collision
 
-    def set_pipe_collision(self, mode=True):
+    def set_pipe_collision(self, mode=False):
         """
-        Enable/Disable pipe collision.
+        Enable/Disable pipe collision. (default: ``False``)
 
         When enabled dragging a node over a pipe will allow the node to be
         inserted as a new connection between the pipe.
@@ -759,7 +759,7 @@ class NodeGraph(QtCore.QObject):
             :meth:`NodeGraph.pipe_collision`
 
         Args:
-            mode (bool): False to disable pipe collision.
+            mode (bool): True to enable pipe collision.
         """
         self._model.pipe_collision = mode
         self._viewer.pipe_collision = mode
