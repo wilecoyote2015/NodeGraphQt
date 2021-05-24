@@ -841,7 +841,7 @@ If no nodes are selected then all nodes in the graph will be framed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.pipe_collision">
 <span class="sig-name descname"><span class="pre">pipe_collision</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.pipe_collision" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns if pipe collision is enabled.</p>
+<dd><p>Returns if pipe collision is enabled in the current session.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>To enable/disable pipe collision
@@ -1132,8 +1132,8 @@ the node graph.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="NodeGraphQt.NodeGraph.set_pipe_collision">
-<span class="sig-name descname"><span class="pre">set_pipe_collision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.set_pipe_collision" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable/Disable pipe collision.</p>
+<span class="sig-name descname"><span class="pre">set_pipe_collision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.set_pipe_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/Disable pipe collision. (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
 <p>When enabled dragging a node over a pipe will allow the node to be
 inserted as a new connection between the pipe.</p>
 <div class="admonition seealso">
@@ -1142,7 +1142,7 @@ inserted as a new connection between the pipe.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>) – False to disable pipe collision.</p>
+<dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>) – True to enable pipe collision.</p>
 </dd>
 </dl>
 </dd></dl>
