@@ -4266,7 +4266,7 @@ footer p{
 .rst-content div[class^=highlight] pre{
     white-space:pre;
     margin:0;
-    padding:4px;
+    padding:2px;
     display:block;
     overflow:auto
 }
@@ -4278,7 +4278,7 @@ footer p{
 .rst-content .linenodiv pre,.rst-content div[class^=highlight] pre,.rst-content pre.literal-block{
     font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
     font-size:12px;
-    line-height:1.4
+    line-height:1.45
 }
 .rst-content div.highlight .gp{
     user-select:none;
