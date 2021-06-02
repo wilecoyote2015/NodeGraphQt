@@ -44,7 +44,7 @@ class NodeItem(AbstractNodeItem):
 
     def paint(self, painter, option, widget):
         """
-        Draws the node base not the ports.
+        Draws the node base not the ports or text.
 
         Args:
             painter (QtGui.QPainter): painter used for drawing the item.
@@ -82,17 +82,20 @@ class NodeItem(AbstractNodeItem):
                                   rect.y() + padding[1],
                                   rect.width() - padding[0] - margin,
                                   text_rect.height() - (padding[1] * 2))
-        painter.setBrush(QtGui.QColor(0, 0, 0, 50))
         if self.selected:
             painter.setBrush(QtGui.QColor(*NODE_SEL_COLOR))
+        else:
+            painter.setBrush(QtGui.QColor(0, 0, 0, 50))
         painter.drawRoundedRect(text_rect, 3.0, 3.0)
 
         # node border
-        border_width = 0.8
-        border_color = QtGui.QColor(*self.border_color)
         if self.selected:
             border_width = 1.2
             border_color = QtGui.QColor(*NODE_SEL_BORDER_COLOR)
+        else:
+            border_width = 0.8
+            border_color = QtGui.QColor(*self.border_color)
+
         border_rect = QtCore.QRectF(rect.left(), rect.top(),
                                     rect.width(), rect.height())
 
@@ -392,18 +395,6 @@ class NodeItem(AbstractNodeItem):
                 txt_width = text.boundingRect().width() - txt_offset
                 txt_x = port.x() - txt_width
                 text.setPos(txt_x, port.y() - 1.5)
-
-    def offset_label(self, x=0.0, y=0.0):
-        """
-        offset the label in the node layout.
-
-        Args:
-            x (float): horizontal x offset
-            y (float): vertical y offset
-        """
-        icon_x = self._text_item.pos().x() + x
-        icon_y = self._text_item.pos().y() + y
-        self._text_item.setPos(icon_x, icon_y)
 
     def draw_node(self):
         """
