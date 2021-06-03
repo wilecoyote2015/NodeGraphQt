@@ -147,7 +147,7 @@ class MyGroup(GroupNode):
 
     def __init__(self):
         super(MyGroup, self).__init__()
-        self.set_color(50, 60, 80)
+        self.set_color(50, 8, 25)
 
         # create input and output port.
         self.add_input('in')

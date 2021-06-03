@@ -7,6 +7,13 @@ from NodeGraphQt.qgraphics.node_group import (GroupNodeItem,
 
 
 class GroupNode(BaseNode):
+    """
+    The ``NodeGraphQt.GroupNode`` class extends from the
+    :class:``NodeGraphQt.BaseNode`` class with the ability to nest other nodes
+    inside of it.
+
+    **Inherited from:** :class:`NodeGraphQt.BaseNode`
+    """
 
     NODE_NAME = 'Group'
 
@@ -16,3 +23,9 @@ class GroupNode(BaseNode):
             NODE_LAYOUT_VERTICAL: GroupNodeVerticalItem
         }
         super(GroupNode, self).__init__(qgraphics_views)
+
+    def expand(self):
+        return
+
+    def collapse(self):
+        return
