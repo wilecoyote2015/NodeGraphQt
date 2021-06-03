@@ -46,7 +46,7 @@ class GroupNodeItem(NodeItem):
         # draw the base color
         offset = 3.0
         rect_1 = QtCore.QRectF(rect.x() + (offset / 2),
-                               rect.y() + offset + 1.0,
+                               rect.y() + offset + 2.0,
                                rect.width(), rect.height())
         rect_2 = QtCore.QRectF(rect.x() - offset,
                                rect.y() - offset,
@@ -57,9 +57,11 @@ class GroupNodeItem(NodeItem):
         poly.append(rect_2.bottomLeft())
         poly.append(rect_1.bottomLeft())
 
-        painter.setBrush(QtGui.QColor(*self.color))
+        painter.setBrush(QtGui.QColor(*self.color).darker(180))
         painter.drawRect(rect_1)
         painter.drawPolygon(poly)
+
+        painter.setBrush(QtGui.QColor(*self.color))
         painter.drawRect(rect_2)
 
         if self.selected:
@@ -85,7 +87,7 @@ class GroupNodeItem(NodeItem):
         painter.drawRect(text_rect)
 
         # draw the outlines.
-        pen = QtGui.QPen(border_color, 0.8)
+        pen = QtGui.QPen(border_color.darker(120), 0.8)
         pen.setJoinStyle(QtCore.Qt.RoundJoin)
         pen.setCapStyle(QtCore.Qt.RoundCap)
         painter.setBrush(QtCore.Qt.NoBrush)
@@ -95,6 +97,11 @@ class GroupNodeItem(NodeItem):
                            rect_1.bottomRight(), rect_1.bottomLeft(),
                            rect_1.bottomLeft(), rect_2.bottomLeft()])
         painter.drawLine(rect_1.bottomRight(), rect_2.bottomRight())
+
+        pen = QtGui.QPen(border_color, 0.8)
+        pen.setJoinStyle(QtCore.Qt.MiterJoin)
+        pen.setCapStyle(QtCore.Qt.RoundCap)
+        painter.setPen(pen)
         painter.drawRect(rect_2)
 
         painter.restore()
@@ -216,10 +223,6 @@ class GroupNodeVerticalItem(NodeItem):
         font.setPointSize(15)
         self.text_item.setFont(font)
 
-        self.add_input('foo')
-        self.add_input('bar')
-        self.add_output('out')
-
     def paint(self, painter, option, widget):
         """
         Draws the node base not the ports or text.
@@ -246,8 +249,8 @@ class GroupNodeVerticalItem(NodeItem):
 
         # draw the base color
         offset = 3.0
-        rect_1 = QtCore.QRectF(rect.x() + (offset / 2),
-                               rect.y() + offset + 1.0,
+        rect_1 = QtCore.QRectF(rect.x() + offset,
+                               rect.y() + (offset / 2),
                                rect.width(), rect.height())
         rect_2 = QtCore.QRectF(rect.x() - offset,
                                rect.y() - offset,
@@ -258,9 +261,10 @@ class GroupNodeVerticalItem(NodeItem):
         poly.append(rect_2.bottomLeft())
         poly.append(rect_1.bottomLeft())
 
-        painter.setBrush(QtGui.QColor(*self.color))
+        painter.setBrush(QtGui.QColor(*self.color).dark(180))
         painter.drawRect(rect_1)
         painter.drawPolygon(poly)
+        painter.setBrush(QtGui.QColor(*self.color))
         painter.drawRect(rect_2)
 
         if self.selected:
@@ -286,8 +290,8 @@ class GroupNodeVerticalItem(NodeItem):
             painter.drawRect(top_rect)
 
         # draw the outlines.
-        pen = QtGui.QPen(border_color, 0.8)
-        pen.setJoinStyle(QtCore.Qt.RoundJoin)
+        pen = QtGui.QPen(border_color.darker(120), 0.8)
+        pen.setJoinStyle(QtCore.Qt.MiterJoin)
         pen.setCapStyle(QtCore.Qt.RoundCap)
         painter.setBrush(QtCore.Qt.NoBrush)
         painter.setPen(pen)
@@ -296,6 +300,11 @@ class GroupNodeVerticalItem(NodeItem):
                            rect_1.bottomRight(), rect_1.bottomLeft(),
                            rect_1.bottomLeft(), rect_2.bottomLeft()])
         painter.drawLine(rect_1.bottomRight(), rect_2.bottomRight())
+
+        pen = QtGui.QPen(border_color, 0.8)
+        pen.setJoinStyle(QtCore.Qt.MiterJoin)
+        pen.setCapStyle(QtCore.Qt.RoundCap)
+        painter.setPen(pen)
         painter.drawRect(rect_2)
 
         painter.restore()
@@ -339,7 +348,7 @@ class GroupNodeVerticalItem(NodeItem):
             half_width = port_width / 2
             delta = self._width / (len(inputs) + 1)
             port_x = delta
-            port_y = (port_height / 2) * -1
+            port_y = -port_height / 2 + 3.0
             for port in inputs:
                 port.setPos(port_x - half_width, port_y)
                 port_x += delta
@@ -352,7 +361,7 @@ class GroupNodeVerticalItem(NodeItem):
             half_width = port_width / 2
             delta = self._width / (len(outputs) + 1)
             port_x = delta
-            port_y = self._height - (port_height / 2)
+            port_y = self._height - (port_height / 2) - 9.0
             for port in outputs:
                 port.setPos(port_x - half_width, port_y)
                 port_x += delta
