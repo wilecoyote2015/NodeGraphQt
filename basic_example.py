@@ -7,6 +7,7 @@ from Qt import QtCore, QtGui, QtWidgets
 from NodeGraphQt import (NodeGraph,
                          BaseNode,
                          BackdropNode,
+                         GroupNode,
                          PropertiesBinWidget,
                          NodesTreeWidget,
                          setup_context_menu)
@@ -223,6 +224,9 @@ if __name__ == '__main__':
 
     # auto layout nodes.
     graph.auto_layout_nodes()
+
+    graph.register_node(GroupNode, 'GroupNode')
+    graph.create_node('GroupNode')
 
     # wrap a backdrop node.
     backdrop_node = graph.create_node('Backdrop')

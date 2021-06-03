@@ -85,7 +85,7 @@ class NodeItem(AbstractNodeItem):
         if self.selected:
             painter.setBrush(QtGui.QColor(*NODE_SEL_COLOR))
         else:
-            painter.setBrush(QtGui.QColor(0, 0, 0, 50))
+            painter.setBrush(QtGui.QColor(0, 0, 0, 80))
         painter.drawRoundedRect(text_rect, 3.0, 3.0)
 
         # node border
@@ -415,7 +415,7 @@ class NodeItem(AbstractNodeItem):
 
         # align label text
         self.align_label()
-        # arrange icon
+        # align icon
         self.align_icon()
         # arrange input and output ports.
         self.align_ports(v_offset=height + (height / 2))
@@ -471,7 +471,10 @@ class NodeItem(AbstractNodeItem):
 
         visible = not mode
 
-        # node widget visibility
+        # disable overlay item.
+        self._x_item.proxy_mode = self._proxy_mode
+
+        # node widget visibility.
         for w in self._widgets.values():
             w.widget().setVisible(visible)
 
@@ -788,13 +791,14 @@ class NodeItemVertical(NodeItem):
         # top & bottom edge background.
         padding = 2.0
         height = 10
-        painter.setBrush(QtGui.QColor(0, 0, 0, 50))
         if self.selected:
             painter.setBrush(QtGui.QColor(*NODE_SEL_COLOR))
+        else:
+            painter.setBrush(QtGui.QColor(0, 0, 0, 80))
         for y in [rect.y() + padding, rect.height() - height - 1]:
-            top_rect = QtCore.QRectF(rect.x() + padding, y,
+            edge_rect = QtCore.QRectF(rect.x() + padding, y,
                                      rect.width() - (padding * 2), height)
-            painter.drawRoundedRect(top_rect, 3.0, 3.0)
+            painter.drawRoundedRect(edge_rect, 3.0, 3.0)
 
         # node border
         border_width = 0.8
@@ -872,7 +876,7 @@ class NodeItemVertical(NodeItem):
         Re-draw the node item in the scene.
         """
         # setup initial base size.
-        self._set_base_size(add_w=0.0, add_h=0.0)
+        self._set_base_size()
         # set text color when node is initialized.
         self._set_text_color(self.text_color)
         # set the tooltip
@@ -881,9 +885,9 @@ class NodeItemVertical(NodeItem):
         # --- setup node layout ---
         # (do all the graphic item layout offsets here)
 
-        # arrange label text
-        self.align_label(h_offset=6, v_offset=6)
-        # arrange icon
+        # align label text
+        self.align_label(h_offset=7, v_offset=6)
+        # align icon
         self.align_icon(h_offset=4, v_offset=-2)
         # arrange input and output ports.
         self.align_ports()
