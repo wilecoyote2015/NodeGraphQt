@@ -780,7 +780,7 @@ class NodeGraph(QtCore.QObject):
         Args:
             nodes (list[NodeGraphQt.BaseNode]): a list of nodes.
         """
-        self._viewer.center_selection(nodes)
+        self._viewer.center_selection([n.view for n in nodes])
 
     def center_selection(self):
         """
@@ -1639,18 +1639,18 @@ class NodeGraph(QtCore.QObject):
 
     def graph_rect(self):
         """
-        Get the graph viewer range.
+        Get the graph viewer range (scene size).
 
         Returns:
-            list: [x, y, width, height].
+            list[float]: [x, y, width, height].
         """
         return self._viewer.scene_rect()
 
     def set_graph_rect(self, rect):
         """
-        Set the graph viewer range.
+        Set the graph viewer range (scene size).
 
         Args:
-            rect (list): [x, y, width, height].
+            rect (list[float]): [x, y, width, height].
         """
         self._viewer.set_scene_rect(rect)
