@@ -9,12 +9,13 @@ class BaseMenu(QtWidgets.QMenu):
     def __init__(self, *args, **kwargs):
         super(BaseMenu, self).__init__(*args, **kwargs)
         text_color = self.palette().text().color().getRgb()
+        background_color = self.palette().window().color().getRgb()
         selected_color = self.palette().highlight().color().getRgb()
         style_dict = {
             'QMenu': {
                 'color': 'rgb({0},{1},{2})'.format(*text_color),
                 'background-color': 'rgb({0},{1},{2})'.format(
-                    *ViewerEnum.BACKGROUND_COLOR.value
+                    *background_color
                 ),
                 'border': '1px solid rgba({0},{1},{2},30)'.format(*text_color),
                 'border-radius': '3px',
