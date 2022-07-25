@@ -19,12 +19,12 @@ class NodeGraphWidget(QtWidgets.QTabWidget):
         style_dict = {
             'QWidget': {
                 'background-color': 'rgb({0},{1},{2})'.format(
-                    *ViewerEnum.BACKGROUND_COLOR.value
+                    *self.palette().window().color().getRgb()
                 ),
             },
             'QTabWidget::pane': {
                 'background': 'rgb({0},{1},{2})'.format(
-                    *ViewerEnum.BACKGROUND_COLOR.value
+                    *self.palette().window().color().getRgb()
                 ),
                 'border': '0px',
                 'border-top': '0px solid rgb({0},{1},{2})'.format(*bg_color),
